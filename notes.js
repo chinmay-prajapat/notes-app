@@ -1,4 +1,4 @@
 const noteFun = function () {
-  console.log("this is my note");
+  return "this is my note";
 };
 module.exports = noteFun;
