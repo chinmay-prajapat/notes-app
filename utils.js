@@ -1,2 +1,4 @@
-const utils = "this is util";
-module.exports = utils;
+const add = function (a, b) {
+  return a + b;
+};
+module.exports = add;
