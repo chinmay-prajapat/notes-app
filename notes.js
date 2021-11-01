@@ -15,10 +15,11 @@ const addNote = function (title, body) {
 const removeNote = function (title) {
   const notes = loadNotes();
 
-  const note = notes.filter((item) => {
-    console.log("the note is removed");
-    item.title !== title;
-  });
+  const note = notes.filter((item) => item.title !== title);
+  notes.length > note.length
+    ? console.log("Item removed")
+    : console.log("Item not found");
+
   saveNotes(note);
 };
 const saveNotes = function (notes) {
