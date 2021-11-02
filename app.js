@@ -15,28 +15,28 @@ yargs.command({
       type: "string",
     },
   },
-  handler: function (argv) {
+  handler(argv) {
     notes.addNote(argv.title, argv.body);
   },
 });
 yargs.command({
   command: "remove",
   describe: "removing notes",
-  handler: function (argv) {
+  handler(argv) {
     notes.removeNote(argv.title);
   },
 });
 yargs.command({
   command: "list",
   describe: "show the list of notes",
-  handler: function () {
+  handler() {
     console.log("List of notes");
   },
 });
 yargs.command({
   command: "read",
   describe: "Read command",
-  handler: function () {
+  handler() {
     console.log("Here are list of command");
   },
 });
