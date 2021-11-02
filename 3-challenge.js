@@ -20,6 +20,9 @@ const tasks = {
       completed: false,
     },
   ],
+  getTasksToDo() {
+    return (incomplete = this.tasks.filter((item) => !item.completed));
+  },
 };
 
 console.log(tasks.getTasksToDo());
