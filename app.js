@@ -1,5 +1,6 @@
 const notes = require("./notes");
 const yargs = require("yargs");
+const chalk = require("chalk");
 yargs.command({
   command: "add",
   describe: "Add a new note",
@@ -30,7 +31,8 @@ yargs.command({
   command: "list",
   describe: "show the list of notes",
   handler() {
-    console.log("List of notes");
+    console.log(chalk.bgBlue.black("Your Notes"));
+    notes.list();
   },
 });
 yargs.command({

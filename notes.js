@@ -1,7 +1,10 @@
 const fs = require("fs");
 const chalk = require("chalk");
 const getNotes = () => {};
-
+const list = () => {
+  const listData = fs.readFileSync("notes.json");
+  return JSON.parse(listData).forEach((item) => console.log(item.title));
+};
 const addNote = (title, body) => {
   const notes = loadNotes();
   const note = notes.some((item) => item.title === title);
@@ -39,4 +42,5 @@ module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
+  list: list,
 };
