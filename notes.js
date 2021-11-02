@@ -1,13 +1,23 @@
 const fs = require("fs");
 const chalk = require("chalk");
-const getNotes = () => {};
+const getNotes = (title) => {
+  const notes = loadNotes();
+  const found = notes.find((item) => item.title === title);
+  if (found) {
+    return console.log(found.title + "=>" + found.body);
+  } else {
+    return console.log(chalk.red("Not Found!"));
+  }
+};
 const list = () => {
   const listData = fs.readFileSync("notes.json");
   return JSON.parse(listData).forEach((item) => console.log(item.title));
 };
+
 const addNote = (title, body) => {
   const notes = loadNotes();
   const note = notes.some((item) => item.title === title);
+
   if (!note) {
     notes.push({ title: title, body: body });
     saveNotes(notes);
